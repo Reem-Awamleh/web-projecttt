@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contact form</title>
+    <style>
+        p{
+          font-size: 14px;
+          font-style: italic;
+          text-align: center;
+        }
+
+       *{
+        border-style:hidden ;
+        border-radius:20px ;
+       }
+    </style>
+</head>
+<body style="background-color: rgb(253, 217, 226); color: rgb(58, 21, 33);">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+  <script>
+
+function validateForm()
+ {
+   let firstName = document.getElementById('firstName').value;
+   let lastName = document.getElementById('lastName').value;
+   let email = document.getElementById('email').value; 
+   let phone = document.getElementById('phone').value;
+   let message = document.getElementById('message').value; 
+    
+   if(!firstName){
+    document.getElementById('firstNameError').innerText = "First name is required!";
+     return false;
+   }
+   else if(firstName)
+   {
+    document.getElementById("firstNameError").innerText="";
+   }
+   if (!lastName){
+    document.getElementById('lastNameError').innerText = "last name is required!";
+     return false;
+   }
+   else if(lastName)
+   {
+    document.getElementById("lastNameError").innerText="";
+   }
+   if (!email)
+    { 
+      document.getElementById('emailError').innerText = "Email is required!";
+    return false; 
+  }
+    if (!validateEmail(email))
+     { document.getElementById('emailError').innerText = "Please enter a valid email address!";
+      return false; }
+      else if(email)
+      {
+        document.getElementById("emailError").innerText="";
+      }
+    if (!phone)
+     { document.getElementById('phoneError').innerText = "Phone number is required!";
+      return false; } 
+      else if(phone)
+      {
+        document.getElementById("phoneError").innerText="";
+      }
+    if (!message)
+     { document.getElementById('messageError').innerText = "Message is required!"; 
+     return false; }
+     else if(message)
+   {
+    document.getElementById("messageError").innerText="";
+   }
+    else{
+    alert("Form submitted successfully! we will contact with you as soon as possible");
+     return true; }
+
+     function validateEmail(email) {
+      return email.includes('@');//true
+     
+     }
+    }
+
+
+
+  </script>
+    <h1 style="text-align: center; ; ">Contact Us</h1>
+    <h4 style="text-align: center; font-style: oblique;">Fill out and submit the form and someone from our team will reach out soon after</h4>
+    <br>
+    <form style="text-align: center;"  onsubmit="return validateForm()"  >
+      <div id="mb-3">
+         <input id="firstName"  type="text"  placeholder=" First name" style="width: 250px;height: 30px; background-color: rgb(252, 226, 236);"  >
+         <span id="firstNameError" style="color: red;"></span>   
+</div>
+<div id="mb-3">
+         <input id="lastName" type="text" placeholder=" Last name" style="width: 250px;height: 30px;  background-color: rgb(252, 226, 236);"><br><br>
+         <span id="lastNameError"  style="color: red;"></span>
+</div>
+<div id="mb-3">
+       <input id="email" type="text" placeholder="@Email" style="width: 250px;height: 30px; background-color: rgb(252, 226, 236);"> 
+       <span id="emailError"  style="color: red;"></span>
+<div id="mb-3">
+       <input id="phone" type="text" placeholder=" +962" style="width: 250px;height: 30px; background-color: rgb(252, 226, 236);" ><br><br>
+       <span id="phoneError"  style="color: red;"></span>
+</div>
+<div id="mb-3">
+       &emsp;  &emsp; &emsp;&emsp;  &emsp; &emsp; <textarea id="message" col="200" row="200" placeholder=" Your message" style="width: 505px; height: 90px;  background-color: rgb(252, 226, 236);"></textarea>
+       <span id="messageError" style="color: red;"></span>
+</div>
+<div id="mb-3">
+       &emsp;<input style="background-color:rgb(252, 226, 236) ;" type="submit"   >
+       <input style="background-color:rgb(252, 226, 236) ;" type="reset">
+       </div>
+      </form>
+      <br><br>
+      <p >We'll use your personal information only to communicate and handle your inquiry. </p>
+      <p>  From time to time, we would like to contact you about our products and services and other content that may interest you.<br> If you 
+        consent to contact for this purpose, please tick below .</p>
+       <p> I agree to receive othermarketing communications from Survicate .</p>
+</body>
+</html>
